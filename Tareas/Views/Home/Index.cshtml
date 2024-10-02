@@ -11,47 +11,83 @@
     <link rel="stylesheet" href="~/css/site.css" />
     <style>
         body {
-            font-family: Arial, sans-serif;
+            font-family: 'Arial', sans-serif;
             margin: 0;
             padding: 0;
-            background-color: #f4f4f4;
+            background-color: #f0f8ff;
         }
 
         header {
-            background: linear-gradient(to right, #6a11cb, #2575fc);
-            color: white;
-            padding: 50px 0;
+            background: linear-gradient(to right, #ff7e5f, #feb47b);
+            color: black; /* Cambiar el color del texto a negro */
+            padding: 60px 0;
             text-align: center;
+            box-shadow: 0 6px 12px rgba(0, 0, 0, 0.1);
         }
 
         .hero {
-            max-width: 800px;
+            max-width: 850px;
             margin: auto;
-            padding: 20px;
-            border-radius: 8px;
-            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+            padding: 30px;
+            border-radius: 10px;
+            background-color: white;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+            transition: box-shadow 0.3s ease-in-out;
         }
 
+            .hero:hover {
+                box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+            }
+
         .hero-content h1 {
-            font-size: 2.5em;
+            font-size: 2.8em;
             margin-bottom: 20px;
+            font-weight: bold;
+            letter-spacing: 1.5px;
+            color: black; /* Asegurarse de que el título sea negro */
         }
 
         .hero-content p {
             font-size: 1.2em;
-            line-height: 1.5;
+            color: black; /* Asegurarse de que el párrafo sea negro */
+            line-height: 1.6;
         }
+
+        /* Ajustes para pantallas pequeñas */
+        .small-screen h1 {
+            font-size: 2.2em;
+        }
+
+        .small-screen p {
+            font-size: 1.1em;
+        }
+
     </style>
 </head>
 <body>
     <header>
         <div class="hero">
             <div class="hero-content">
-                <h1>Bienvenido a tu aplicación de tareas tipo categoría</h1>
-                <p>Administra eficientemente tus tareas en un entorno de categorías con facilidad.</p>
+                <h1 class="large-screen">Bienvenido a tu aplicación de tareas por categoría</h1>
+                <p class="large-screen">Organiza fácilmente tus tareas con un sistema de categorías sencillo y eficiente.</p>
             </div>
         </div>
     </header>
+
+    <script>
+        // Ajustar el tamaño del texto según el ancho de la pantalla
+        function adjustTextSize() {
+            if (window.innerWidth <= 768) {
+                document.querySelector('.hero-content h1').classList.add('small-screen');
+                document.querySelector('.hero-content p').classList.add('small-screen');
+            } else {
+                document.querySelector('.hero-content h1').classList.remove('small-screen');
+                document.querySelector('.hero-content p').classList.remove('small-screen');
+            }
+        }
+
+        window.addEventListener('resize', adjustTextSize);
+        window.addEventListener('load', adjustTextSize);
+    </script>
 </body>
 </html>
-
